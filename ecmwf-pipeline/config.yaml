@@ -1,0 +1,32 @@
+# Configuration for the C3S Multi-System Seasonal Forecast Ingestion Pipeline
+pipeline_paths:
+  raw_netcdf_dir: 'data/raw'
+  processed_bufr_dir: 'data/bufr'
+  visualization_dir: 'data/plots'
+
+# Global setting for data retrieval.
+# 'real': Uses the CDS API. Falls back to synthetic if API key fails.
+# 'synthetic': Always generates fake data.
+retrieval_mode: 'real'
+
+# --- Definitions of External Data Providers ---
+providers:
+  ecmwf-era5:
+    type: 'reanalysis'
+    enabled: true
+    data_format: 'netcdf'
+    # The variable_map MUST have a nested structure matching the obs_type ('surface', 'upper_air', etc.)
+    variable_map:
+      surface: # <-- THIS IS THE KEY THAT WAS MISSING
+        latitude: 'latitude'
+        longitude: 'longitude'
+        temperature: 't2m'
+        pressure: 'msl'
+        u_wind: 'u10'
+        v_wind: 'v10'
+
+# Quality Control (QC) Parameters
+quality_control:
+  temperature_K: {min: 180.0, max: 330.0}
+  pressure_Pa: {min: 80000.0, max: 110000.0}
+  wind_component_ms: {min: -100.0, max: 100.0}

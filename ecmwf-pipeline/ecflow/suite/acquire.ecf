@@ -1,0 +1,7 @@
+%include "head.h"
+echo "--- [TASK] Starting Data Acquisition ---"
+PROJECT_ROOT="/home/duskdawn/git/ecmwf-obs-pipeline/ecmwf-pipeline"
+# ... rest of your script ...
+python3 "${ACQUIRE_SCRIPT}" --date "%RUN_DATE%" --config "${CONFIG_FILE}"
+echo "--- [TASK] Finished Data Acquisition ---"
+%include "tail.h"

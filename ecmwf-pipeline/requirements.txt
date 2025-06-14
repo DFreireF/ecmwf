@@ -1,0 +1,12 @@
+numpy
+netcdf4
+eccodes
+pyyaml
+pytest
+cdsapi
+matplotlib
+cartopy
+flake8
+joblib
+scikit-learn
+mlflow

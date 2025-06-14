@@ -1,0 +1,9 @@
+echo "--- [TASK] Starting Processing & Visualization ---"
+
+ACQUIRE_SCRIPT="%PROJECT_ROOT%/bin/process_and_visualize.py"
+CONFIG_FILE="%PROJECT_ROOT%/config.yaml"
+
+# KEY CHANGE: Use 'python3' to match the working test script.
+python3 "${ACQUIRE_SCRIPT}" --date "%RUN_DATE%" --config "${CONFIG_FILE}"
+
+echo "--- [TASK] Finished Processing & Visualization ---"
