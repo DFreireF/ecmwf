@@ -1,1 +1,1 @@
-# Recopilation of projects related to ECMWF
+*Recopilation of projects related to ECMWF*
